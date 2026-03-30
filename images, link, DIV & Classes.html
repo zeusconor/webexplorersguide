@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Image, Link & Div Tutorial</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #f1f5f9;
+        }
+        .code-block {
+            background-color: #1e293b;
+            color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-family: 'Fira Code', monospace;
+            margin: 1rem 0;
+            position: relative;
+        }
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: #475569;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover { background: #64748b; }
+        
+        /* Custom styles for Div example */
+        .my-custom-box {
+            background-color: #ffedd5;
+            border: 2px solid #f97316;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .nested-box {
+            background: white;
+            border: 1px dashed #cbd5e1;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-100">
+        <!-- Header -->
+        <div class="bg-slate-800 p-8 text-white text-center">
+            <h1 class="text-3xl font-extrabold mb-2 tracking-tight">HTML & CSS Fundamentals</h1>
+            <p class="opacity-90 text-lg">Mastering Images, Links, and Layouts</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="flex border-b bg-gray-50">
+            <button onclick="showTab('image-tab')" id="btn-image" class="flex-1 py-4 font-bold text-indigo-600 border-b-2 border-indigo-600 bg-white">Images</button>
+            <button onclick="showTab('link-tab')" id="btn-link" class="flex-1 py-4 font-bold text-gray-500 hover:text-emerald-600 transition">Links (Links)</button>
+            <button onclick="showTab('div-tab')" id="btn-div" class="flex-1 py-4 font-bold text-gray-500 hover:text-orange-600 transition">Div & Classes</button>
+        </div>
+
+        <!-- Image Content (Original Version) -->
+        <div id="image-tab" class="p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-indigo-500 pl-4">1. The Image Element (&lt;img&gt;)</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">The <code class="bg-gray-100 px-1.5 py-0.5 rounded text-indigo-600 font-mono">&lt;img&gt;</code> tag is used to embed images. It is an <strong>empty element</strong> (no closing tag).</p>
+
+            <div class="space-y-6">
+                <!-- Basic Example -->
+                <div class="bg-indigo-50 p-5 rounded-xl border border-indigo-100 text-gray-700">
+                    <h3 class="font-bold text-indigo-900 mb-2 underline">Basic Syntax</h3>
+                    <ul class="space-y-2">
+                        <li><span class="font-bold">src:</span> URL or path to the image file.</li>
+                        <li><span class="font-bold">alt:</span> Alternative text (Shows if the image fails to load).</li>
+                    </ul>
+                </div>
+                
+                <div class="code-block">
+                    <div class="copy-btn" onclick="copyCode('img-code')">Copy</div>
+                    <pre id="img-code">&lt;img src="nature.jpg" alt="A green forest mountain" width="300"&gt;</pre>
+                </div>
+
+                <!-- PRO TIPS SECTION -->
+                <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-yellow-500 shadow-sm">
+                    <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center">
+                        <span class="mr-2">💡</span> Pro Tips for Images
+                    </h3>
+                    <div class="space-y-4 text-gray-700 text-sm">
+                        <div class="p-3 bg-white rounded border border-gray-200">
+                            <p class="font-bold text-indigo-600">Tip 1: Always include Alt text</p>
+                            <p>This is crucial for SEO and accessibility for visually impaired users using screen readers.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded border border-gray-200">
+                            <p class="font-bold text-indigo-600">Tip 2: Make it Responsive</p>
+                            <p>To prevent images from overflowing on mobile screens, always use CSS like <code class="bg-gray-100 px-1 font-mono">max-width: 100%; height: auto;</code>.</p>
+                        </div>
+                        <div class="p-3 bg-white rounded border border-gray-200">
+                            <p class="font-bold text-indigo-600">Tip 3: Image as a Link</p>
+                            <p>You can make an image clickable by wrapping it inside an anchor <code class="bg-gray-100 px-1 font-mono">&lt;a&gt;</code> tag.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LIVE DEMO SECTION -->
+                <div class="border rounded-xl overflow-hidden bg-gray-50">
+                    <div class="bg-gray-200 px-4 py-2 text-xs font-bold text-gray-600 uppercase">Live Example: Image as a Link</div>
+                    <div class="p-8 text-center">
+                        <p class="text-sm text-gray-500 mb-4">Click the image below to visit Unsplash:</p>
+                        <a href="https://unsplash.com" target="_blank" class="inline-block transition hover:opacity-80">
+                            <img src="https://picsum.photos/id/10/300/200" alt="Mountain Lake" class="rounded-lg shadow-xl border-4 border-white">
+                        </a>
+                        <div class="mt-4 code-block text-left text-xs">
+                            <pre>&lt;a href="https://unsplash.com" target="_blank"&gt;
+  &lt;img src="mountain.jpg" alt="Mountain Lake"&gt;
+&lt;/a&gt;</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Link Content (Updated with Pro Tips) -->
+        <div id="link-tab" class="p-8 hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-emerald-500 pl-4">2. The Link Element (&lt;a&gt;)</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">The <code class="bg-gray-100 px-1.5 py-0.5 rounded text-emerald-600 font-mono">&lt;a&gt;</code> (Anchor) tag is like a "portal" that takes you to another place on the internet.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 text-sm text-gray-700">
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                    <p class="font-bold text-emerald-800 mb-1">href (Hyperlink Reference)</p>
+                    <p>The destination URL. Where does the link go?</p>
+                </div>
+                <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                    <p class="font-bold text-emerald-800 mb-1">target="_blank"</p>
+                    <p>Opens the link in a <strong>new tab</strong> so users don't leave your site.</p>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 p-6 rounded-xl border-l-4 border-emerald-500 mb-8">
+                <h3 class="text-lg font-bold text-slate-800 mb-3">🚀 Pro Tips for Links</h3>
+                <div class="space-y-3">
+                    <div class="flex items-start">
+                        <span class="text-emerald-500 mr-2">✔</span>
+                        <p><span class="font-bold">Descriptive Text:</span> Don't just write "Click Here". Write "Download the PDF" or "Read more about cats". It helps Google understand your page better!</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-emerald-500 mr-2">✔</span>
+                        <p><span class="font-bold">Internal vs External:</span> Use <code class="bg-gray-200 px-1">target="_blank"</code> for other websites, but <strong>don't</strong> use it for your own pages.</p>
+                    </div>
+                    <div class="flex items-start">
+                        <span class="text-emerald-500 mr-2">✔</span>
+                        <p><span class="font-bold">Title Attribute:</span> Add <code class="bg-gray-200 px-1">title="Visit Google"</code> to show a small tooltip when someone hovers over the link.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="copy-btn" onclick="copyCode('link-code-new')">Copy</div>
+                <pre id="link-code-new">&lt;!-- Opening in a new tab with a title --&gt;
+&lt;a href="https://google.com" target="_blank" title="Search on Google"&gt;
+    Search Something!
+&lt;/a&gt;</pre>
+            </div>
+            
+            <div class="mt-6 text-center p-6 border rounded-xl bg-gray-50">
+                <a href="https://google.com" target="_blank" title="Search on Google" class="text-emerald-600 font-bold underline hover:text-emerald-800 text-xl transition">Search Something!</a>
+            </div>
+        </div>
+
+        <!-- Div & Class Content (Updated with Pro Tips) -->
+        <div id="div-tab" class="p-8 hidden">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 border-l-4 border-orange-500 pl-4">3. Div & Classes</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">Think of a <code class="bg-gray-100 px-1.5 py-0.5 rounded font-mono">&lt;div&gt;</code> as an invisible <strong>Cardboard Box</strong>. It organizes your stuff!</p>
+
+            <div class="space-y-6">
+                <!-- Understanding Classes -->
+                <div class="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                    <h3 class="font-bold text-orange-900 mb-3">What are Classes?</h3>
+                    <p class="text-gray-700 text-sm mb-4">A <strong>class</strong> is like a label you put on your boxes. If you have 10 boxes labeled <code class="text-orange-600">"blue-box"</code>, you can tell CSS to make all "blue-box" items have a blue background at once!</p>
+                </div>
+
+                <div class="bg-slate-800 text-white p-6 rounded-xl">
+                    <h3 class="text-lg font-bold mb-3 flex items-center">
+                        <span class="mr-2">🔥</span> Power User Pro Tips
+                    </h3>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li><span class="text-orange-400 font-bold">1. Meaningful Names:</span> Name classes based on what they ARE, not what they look like. Use <code class="bg-slate-700 px-1 rounded">.news-card</code> instead of <code class="bg-slate-700 px-1 rounded">.big-red-box</code>.</li>
+                        <li><span class="text-orange-400 font-bold">2. Reusability:</span> The superpower of a class is that you can use it on many elements. One style change updates everything!</li>
+                        <li><span class="text-orange-400 font-bold">3. Multiple Classes:</span> An element can have more than one class. Just separate them with a space: <br> <code class="bg-slate-700 px-1 rounded">&lt;div class="card shadow rounded"&gt;</code></li>
+                    </ul>
+                </div>
+
+                <div class="code-block">
+                    <div class="copy-btn" onclick="copyCode('div-code-new')">Copy</div>
+                    <pre id="div-code-new">&lt;!-- One container div with two children inside --&gt;
+&lt;div class="parent-container"&gt;
+    &lt;div class="child-box highlighted"&gt;Box A&lt;/div&gt;
+    &lt;div class="child-box"&gt;Box B&lt;/div&gt;
+&lt;/div&gt;</pre>
+                </div>
+
+                <div class="border-2 border-dashed border-gray-200 p-8 rounded-xl bg-gray-50">
+                    <p class="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4 text-center">Structure Visualization:</p>
+                    <div class="my-custom-box shadow-lg">
+                        <p class="text-orange-800 font-bold mb-2">Parent Div (.my-custom-box)</p>
+                        <div class="nested-box text-gray-500 rounded shadow-sm">Child Div 1</div>
+                        <div class="nested-box text-gray-500 rounded shadow-sm">Child Div 2</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-gray-900 text-white px-5 py-3 rounded-xl shadow-2xl opacity-0 transition-all duration-300 transform translate-y-2 pointer-events-none">
+        Copied to clipboard!
+    </div>
+
+    <script>
+        function showTab(tabId) {
+            document.getElementById('image-tab').classList.add('hidden');
+            document.getElementById('link-tab').classList.add('hidden');
+            document.getElementById('div-tab').classList.add('hidden');
+            
+            const tabs = ['btn-image', 'btn-link', 'btn-div'];
+            tabs.forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.remove('text-indigo-600', 'border-indigo-600', 'bg-white', 'border-b-2', 'text-orange-600', 'border-orange-600', 'text-emerald-600', 'border-emerald-600');
+                btn.classList.add('text-gray-500', 'bg-gray-50');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId.split('-')[0]);
+            
+            let colorClass = 'text-indigo-600';
+            let borderClass = 'border-indigo-600';
+
+            if(tabId === 'div-tab') {
+                colorClass = 'text-orange-600';
+                borderClass = 'border-orange-600';
+            } else if(tabId === 'link-tab') {
+                colorClass = 'text-emerald-600';
+                borderClass = 'border-emerald-600';
+            }
+            
+            activeBtn.classList.add(colorClass, borderClass, 'bg-white', 'border-b-2');
+            activeBtn.classList.remove('text-gray-500', 'bg-gray-50');
+        }
+
+        function copyCode(elementId) {
+            const text = document.getElementById(elementId).innerText;
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+
+            const toast = document.getElementById('toast');
+            toast.classList.remove('opacity-0', 'translate-y-2');
+            toast.classList.add('opacity-100', 'translate-y-0');
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                toast.classList.remove('opacity-100', 'translate-y-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
